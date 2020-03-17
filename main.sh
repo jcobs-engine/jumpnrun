@@ -19,10 +19,12 @@ i=0
 while [ true ]; do
     clear
     
-    b=10
+    b=0
+    block=0
     while [ $b -le $COLUMNS ]; do
+	
 	ran=$(( $RANDOM % 5 ))
-    	if [ $ran -eq 0 ] && ( [ $block -ge 10 ] || [ $block -eq 0 ] ); then
+    	if [ $ran -eq 0 ] && [ $b -ge 10 ] && ( [ $block -ge 10 ] || [ $block -eq 0 ] ); then
 	    tput cup $LINES $b
 	    echo -en "\033[1;41mX\033[0m"
 	    eval 'block'$b=1
@@ -36,7 +38,7 @@ while [ true ]; do
     done
 
     b=0
-    jump=''
+    jump=0
     jb=0
     runter=0
     wait=0
