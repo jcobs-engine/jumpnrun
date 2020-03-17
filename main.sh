@@ -97,6 +97,7 @@ while [ true ]; do
 	    tput cup $(( $LINES / 2 - 1 )) $(( ( $COLUMNS / 2 ) - ( ${#pts} - 14 - $add ) / 2 ))
 	    echo -en $pts
 	    
+	    sleep 2
 	    read -sn1 hallo
 	    
 	    echo -en "\033[0m "
@@ -151,7 +152,7 @@ while [ true ]; do
 	    tput cup $(( $LINES - $jump )) $b
 	    echo -en "\033[0m \033[0m"
 	else
-	    if [ $jump -eq 0 ]; then
+	    if [ $jump -eq 0 ] || [ $jump -eq 1 ]; then
 		tput cup $(( $LINES - $jump )) $b
 		echo -en "\033[1;41mX\033[0m"
 	    else
